@@ -1,0 +1,90 @@
+<!doctype html>
+<html>
+	<head>
+		<title>Home</title>
+		<meta charset="utf-8" />
+		<meta http-equiv="Content-type" content="text/html; charset=utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1" />
+		<script type="text/javascript" src="jquery.min.js"></script>
+		<link href="css/bootstrap.min.css" rel="stylesheet">
+		<link href="AutoHome.css" rel="stylesheet" type="text/css"/>
+	<body data-spy="scroll" data-target=".navbar-collapse">
+		<nav id = "nav" class="navbar navbar-default">
+			<div id="logo">
+              <img src="ams.png" HEIGHT="100" WIDTH="100"  alt="" />
+			</div>
+			<ul class="nav nav-tabs" id="Menu">
+				<li id ="hi" role="presentation" class="right-button" type="Button">Administración Empleado</li>
+	  			<li id ="hi" role="presentation" class="right-button" type="Button">Registro
+	  				<ul id="menucombo">
+	  					<li id="RCitas" type="Button">Registro Citas</li>
+	  					<li id="RVeh" type="Button">Registro Vehiculo</li>
+	  				</ul>
+	  			</li>
+	  			<li id ="hi" role="presentation" class="right-button" type="Button">Seguimiento</li>
+	  			<li id ="hi" role="presentation" class="right-button" type="Button">Home</li>
+	  			<li id ="hi" role="presentation" class="right-button" type="Button">Contacts</li>
+			</ul>
+		</nav>
+	<div id="RegistrarCita" style="width:800px; margin:0 auto;">
+		<h1>Registrar Cita</h1>
+			
+		<form>
+			<div class="input-group">
+				<input id="RCT"type="text" class="form-control" name="nombreEmpleado" placeholder="Clave Usuario" ></input>
+			</div>
+			
+			</br></br>
+			
+			
+			<button id="BuscarCli" type="submit" class="btn btn-lg btn-success" >
+					<span>Buscar</span>
+			</button>
+		
+		</form>
+	</div>
+	<div id="RegistrarVehi" style="width:800px; margin:0 auto;">
+		<h1>Registrar Vehiculo</h1>
+			
+		<form>
+			<div class="input-group">
+				<input id="RCT"type="text" class="form-control" name="nombreEmpleado" placeholder="Clave Vehiculo" ></input>
+			</div>
+			
+			</br></br>
+			
+			
+			<button id="BuscarVeh" type="submit" class="btn btn-lg btn-success" >
+					<span>Buscar</span>
+			</button>
+		
+		</form>
+	</div>
+	<div id="RegistrarVehiculo">
+
+	</div>
+	<div id"homePrin">
+
+	</div>
+
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.0/
+	jquery.min.js"></script>
+	<!-- Include all compiled plugins (below), or include individual files
+	as needed -->
+	<script src="js/bootstrap.min.js"></script>
+	<script>
+	$("#RegistrarCita").hide();
+	$("#RegistrarVehi").hide();
+		$("#RCitas").click(function(){
+			$("#RegistrarCita").show();
+			$("#RegistrarVehi").hide();			
+		});
+		$("#RVeh").click(function(){
+			$("#RegistrarVehi").show();
+			$("#RegistrarCita").hide();
+		});
+	</script>
+	</body>
+
+</html>
+
