@@ -48,6 +48,7 @@ ul li {
 ul li ul {
   padding: 0;
   position: absolute;
+  z-index: 1;
   top: 48px;
   left: 0;
   width: 150px;
@@ -57,6 +58,7 @@ ul li ul {
   display: none;
   opacity: 0;
   visibility: hidden;
+
   -webkit-transiton: opacity 0.2s;
   -moz-transition: opacity 0.2s;
   -ms-transition: opacity 0.2s;
@@ -68,6 +70,7 @@ ul li ul li {
   display: block; 
   color: #fff;
   text-shadow: 0 -1px 0 #000;
+  z-index: 1;
 }
 ul li ul li:hover {
  background: #666;
@@ -76,6 +79,7 @@ ul li:hover ul {
   display: block;
   opacity: 1;
   visibility: visible;
+
 }
 ul li:hover{
 	background: #666;
@@ -102,7 +106,88 @@ ul li:hover{
 	top: 230px;
 	left: 400px;
 }
+#Seguimiento{
+ background: #70756A;
+  padding: 20px 20px;
+  max-width: 400px;
+  max-height: 400px;
+  text-align: center;
+  position: fixed;
+  top: 230px;
+  left: 400px; 
+  text-align: center;
+
+}
+#adminmecanico{
+ background: #70756A;
+  padding: 20px 20px;
+  max-width: 600px;
+  height: 400px;
+  text-align: center;
+  position: fixed;
+  top: 25%;
+  left: 25%; 
+  text-align: center;
+  
+}
+#adminAcesor{
+ background: #70756A;
+  padding: 20px 20px;
+  max-width: 600px;
+  height: 400px;
+  text-align: center;
+  position: fixed;
+  top: 25%;
+  left: 25%; 
+  text-align: center;
+  
+}
+#adminVehi{
+ background: #70756A;
+  padding: 20px 20px;
+  max-width: 600px;
+  height: 400px;
+  text-align: center;
+  position: fixed;
+  top: 25%;
+  left: 25%; 
+  text-align: center;
+  
+}
+#homePrin{
+  background: #70756A;
+  position: fixed;
+  top: 23%;
+  left: 9%;
+  width: 1000px;
+  height: 500px;
+  
+}
+#ContPrin{
+  background: #70756A;
+  position: fixed;
+  top: 23%;
+  left: 9%;
+  width: 1000px;
+  height: 500px;
+  
+}
 #RCT{
 	left: 80px;
+
+}
+#AdminMecaText{
+  left: 150px;
+  width: 250px;
+
+}
+#AdminAcesoText{
+  left: 150px;
+  width: 250px;
+
+}
+#AdminVehiText{
+  left: 150px;
+  width: 250px;
 
 }
