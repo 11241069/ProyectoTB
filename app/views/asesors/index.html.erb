@@ -1,0 +1,31 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Listing Asesors</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Nombreasesor</th>
+      <th>Apellidoasesor</th>
+      <th>Numerotelefono</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @asesors.each do |asesor| %>
+      <tr>
+        <td><%= asesor.NombreAsesor %></td>
+        <td><%= asesor.ApellidoAsesor %></td>
+        <td><%= asesor.NumeroTelefono %></td>
+        <td><%= link_to 'Show', asesor %></td>
+        <td><%= link_to 'Edit', edit_asesor_path(asesor) %></td>
+        <td><%= link_to 'Destroy', asesor, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Asesor', new_asesor_path %>

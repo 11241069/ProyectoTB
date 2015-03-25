@@ -1,0 +1,321 @@
+<!doctype html>
+<html>
+	<head>
+		<%= javascript_include_tag :defaults %>
+		<title>Home</title>
+		<meta charset="utf-8" />
+		<meta http-equiv="Content-type" content="text/html; charset=utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1" />
+		
+		<link href="assets/stylesheets/bootstrap.min.css" rel="stylesheet">
+		<link href="assets/stylesheets/AutoHome.css" rel="stylesheet" type="text/css"/>
+		
+	<body data-spy="scroll" data-target=".navbar-collapse">
+		<nav id = "nav" class="navbar navbar-default">
+			<div id="logo">
+              <img src="assets/images/ams.png" HEIGHT="100" WIDTH="100"  alt="" />
+			</div>
+			<ul class="nav nav-tabs" id="Menu">
+				<li id ="hi" role="presentation" class="right-button" type="Button">Administración Empleado
+				<ul id="menucombo">
+	  					<li id="AAcesor" type="Button">Administrar Acesor</li>
+	  					<li id="AMecanico" type="Button">Administrar Mecanico</li>
+	  					<li id="AVehi" type="Button">Administrar Vehiculo</li>
+	  				</ul>
+	  			</li>
+	  			<li id ="hi" role="presentation" class="right-button" type="Button">Registro
+	  				<ul id="menucombo">
+	  					<li id="RCitas" type="Button">Registro Citas</li>
+	  					<li id="RVeh" type="Button">Registro Vehiculo</li>
+	  				</ul>
+	  			</li>
+	  			<li id ="SeguimientoVehi" role="presentation" class="right-button" type="Button">Seguimiento</li>
+	  			<li id ="homebut" role="presentation" class="right-button" type="Button">Home</li>
+	  			<li id ="ContactBut" role="presentation" class="right-button" type="Button">Contacts</li>
+			</ul>
+		</nav>
+	<div id="RegistrarCita" style="width:800px; margin:0 auto;">
+		<h1>Registrar Cita</h1>
+			
+		<form>
+			<div class="input-group">
+				<input id="RCT1"type="text" class="form-control" name="nombreUsuario" placeholder="Clave Usuario" ></input>
+			</div>
+			
+			</br>
+			
+			
+			<button id="BuscarCli" type = "button" class="btn btn-lg btn" >
+					<span>Buscar</span>
+			</button>
+		
+		</form>
+	</div>
+	<div id="RegistrarVehi" style="width:800px; margin:0 auto;">
+		<h1>Registrar Vehiculo</h1>
+			
+		<form>
+			<div class="input-group">
+				<input id="RCT2"type="text" class="form-control" name="ClaveVehiREG" placeholder="Clave Vehiculo" ></input>
+			</div>
+			
+			</br>
+			
+			
+			<button id="BuscarVeh" type="submit" class="btn btn-lg btn" >
+					<span>Buscar</span>
+			</button>
+		
+		</form>
+	</div>
+	<div id="Seguimiento" style="width:800px; margin:0 auto;">
+		<h1>Seguimiento</h1>
+			
+		<form>
+			<div class="input-group">
+				<input id="RCT"type="text" class="form-control" name="ClaveCita" placeholder="Codigo de la Cita" ></input>
+			</div>
+			
+			</br>
+			
+			
+			<button id="BuscarVehSeguimiento" type="button" class="btn btn-lg btn" >
+					<span>Buscar</span>
+			</button>
+			
+		
+		</form>
+	</div>
+	<div id="adminmecanico" style="width:800px; margin:0 auto;">
+		<h1 align="center">Administración de Mecanicos</h1>
+		</br>	
+		<form>
+			<div align="center"class="input-group">
+				<input align="center"  id="AdminMecaText"type="text" class="form-control" name="nombreACE" placeholder="Clave Acesor" ></input>
+			</div>
+			
+			</br>
+			</br>
+			
+			<button align="center" id="ModificarMecaButton" type="button" class="btn btn-lg btn"  >
+					<span>Modificar</span>
+			</button>
+		</br>
+
+		<h4 align="center">------OR------</h4>
+		
+			<button align="center" id="AgregarMecaButton" type="button" class="btn btn-lg btn"  >
+					<span>Agregar</span>
+			</button>
+		</form>
+	</div>
+	<div id="adminAcesor" style="width:800px; margin:0 auto;">
+		<h1 align="center">Administración de Vehiculos</h1>
+		</br>	
+		<form>
+			<div align="center"class="input-group">
+				<input align="center"  id="AdminAcesoText"type="text" class="form-control" name="nombreVEH" placeholder="Clave Vehiculo" ></input>
+			</div>
+			
+			</br>
+			</br>
+			
+			<button align="center" id="ModificarAcesorButton" type="button" class="btn btn-lg btn"  >
+					<span>Modificar</span>
+			</button>
+		</br>
+
+		<h4 align="center">------OR------</h4>
+		
+			<button align="center" id="AgregarAcesorButton" type="button" class="btn btn-lg btn"  >
+					<span>Agregar</span>
+			</button>
+		</form>
+	</div>
+	<div id="adminVehi" style="width:800px; margin:0 auto;">
+		<h1 align="center">Administración de vehiculos</h1>
+		</br>	
+		<form>
+			<div align="center"class="input-group">
+				<input align="center"  id="AdminVehiText"type="text" class="form-control" name="nombreMEC" placeholder="Clave Mecanico" ></input>
+			</div>
+			
+			</br>
+			</br>
+			
+			<button align="center" id="ModificarVehiButton" type="button" class="btn btn-lg btn"  >
+					<span>Modificar</span>
+			</button>
+		</br>
+
+		<h4 align="center">------OR------</h4>
+		
+			<button align="center" id="AgregarVehiButton" type="button" class="btn btn-lg btn"  >
+					<span>Agregar</span>
+			</button>
+		</form>
+	</div>
+	<div id="homePrin">
+		<h1 align="Center" style="color: #fff;">Home</h1>
+		<p align="Center" style="color: #fff;">Hola aqui Se pondra pura cosas del proyecto y sobre nosotros y que hacemos y blablablabla</p>
+	</div>
+	<div id="ContPrin">
+		<h1 align="Center" style="color: #fff;">Contact</h1>
+		<p align="Center" style="color: #fff;">Hola aqui Se pondra nuestros Numeros Para todas las chicas guapas y sexis que nos quierean para haci poder tener mil novias</p>
+	</div>
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.0/
+	jquery.min.js"></script>
+	<!-- Include all compiled plugins (below), or include individual files
+	as needed -->
+	<script src="assets/javascripts/bootstrap.min.js"></script>
+	<script>
+	$("#RegistrarCita").hide();
+	$("#RegistrarVehi").hide();
+	$("#Seguimiento").hide();
+	$("#adminmecanico").hide();
+	$("#adminVehi").hide();
+	$("#adminAcesor").hide();
+	$("#ContPrin").hide();
+	$("#homePrin").show();
+		$("#RCitas").click(function(){
+			$("#RegistrarCita").show();
+			$("#RegistrarVehi").hide();
+			$("#Seguimiento").hide();
+			$("#adminmecanico").hide();
+			$("#homePrin").hide();
+			$("#adminVehi").hide();
+			$("#adminAcesor").hide();
+			$("#ContPrin").hide();			
+		});
+		$("#RVeh").click(function(){
+			$("#RegistrarVehi").show();
+			$("#RegistrarCita").hide();
+			$("#Seguimiento").hide();
+			$("#adminmecanico").hide();
+			$("#homePrin").hide();
+			$("#adminVehi").hide();
+			$("#adminAcesor").hide();
+			$("#ContPrin").hide();
+		});
+		$("#SeguimientoVehi").click(function(){
+			$("#Seguimiento").show();
+			$("#RegistrarVehi").hide();
+			$("#RegistrarCita").hide();
+			$("#adminmecanico").hide();
+			$("#homePrin").hide();
+			$("#adminVehi").hide();
+			$("#adminAcesor").hide();
+			$("#ContPrin").hide();
+		});
+		$("#SeguimientoVehi").click(function(){
+			$("#Seguimiento").show();
+			$("#RegistrarVehi").hide();
+			$("#RegistrarCita").hide();
+			$("#adminmecanico").hide();
+			$("#homePrin").hide();
+			$("#adminVehi").hide();
+			$("#adminAcesor").hide();
+			$("#ContPrin").hide();
+		});
+		$("#homebut").click(function(){
+			$("#Seguimiento").hide();
+			$("#RegistrarVehi").hide();
+			$("#RegistrarCita").hide();
+			$("#adminmecanico").hide();
+			$("#homePrin").show();
+			$("#adminVehi").hide();
+			$("#adminAcesor").hide();
+			$("#ContPrin").hide();
+		});
+		$("#homebut").click(function(){
+			$("#Seguimiento").hide();
+			$("#RegistrarVehi").hide();
+			$("#RegistrarCita").hide();
+			$("#adminmecanico").hide();
+			$("#homePrin").show();
+			$("#adminVehi").hide();
+			$("#adminAcesor").hide();
+			$("#ContPrin").hide();
+		});
+		$("#AMecanico").click(function(){
+			$("#Seguimiento").hide();
+			$("#RegistrarVehi").hide();
+			$("#RegistrarCita").hide();
+			$("#homePrin").hide();
+			$("#adminmecanico").show();
+			$("#adminVehi").hide();
+			$("#adminAcesor").hide();
+			$("#ContPrin").hide();
+		});
+	$("#AAcesor").click(function(){
+			$("#Seguimiento").hide();
+			$("#RegistrarVehi").hide();
+			$("#RegistrarCita").hide();
+			$("#homePrin").hide();
+			$("#adminmecanico").hide();
+			$("#adminVehi").hide();
+			$("#adminAcesor").show();
+			$("#ContPrin").hide();
+		});
+	$("#AVehi").click(function(){
+			$("#Seguimiento").hide();
+			$("#RegistrarVehi").hide();
+			$("#RegistrarCita").hide();
+			$("#homePrin").hide();
+			$("#adminmecanico").hide();
+			$("#adminVehi").show();
+			$("#adminAcesor").hide();
+			$("#ContPrin").hide();
+		});
+	$("#ContactBut").click(function(){
+			$("#Seguimiento").hide();
+			$("#RegistrarVehi").hide();
+			$("#RegistrarCita").hide();
+			$("#homePrin").hide();
+			$("#adminmecanico").hide();
+			$("#adminVehi").hide();
+			$("#adminAcesor").hide();
+			$("#ContPrin").show();
+		});
+    $("#BuscarVehSeguimiento").click(function() {
+		
+  		$.ajax({
+			
+	     		url: "/checkCita",
+	      		type: "POST",
+	      		data: {idCita: $("#RCT").val()},
+	      		success: function(data){                
+  				if (data == "true"){
+  					var url = "/Seguimiento?idCita=" + $("#RCT").val()
+  					window.location.href=url
+				}
+				else{
+					alert("Ese automovil no ha sido ingresado")				
+				}
+			}
+  		});
+	});
+
+    $("#BuscarCli").click(function() {
+		
+  		$.ajax({
+			
+	     		url: "/checkCliente",
+	      		type: "POST",
+	      		data: {idCliente: $("#RCT1").val()},
+	      		success: function(data){                
+  				if (data == "true"){
+  					var url = "/newCita?idCliente=" + $("#RCT1").val()
+  					window.location.href=url
+				}
+				else{
+					alert("No se encuentra Registrado")				
+				}
+			}
+  		});
+	});
+	</script>
+	</body>
+
+</html>
+
