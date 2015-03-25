@@ -1,0 +1,19 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Citum:</strong>
+  <%= @servicio.citum_id %>
+</p>
+
+<p>
+  <strong>Tipo:</strong>
+  <%= @servicio.tipo %>
+</p>
+
+<p>
+  <strong>Descripcion:</strong>
+  <%= @servicio.descripcion %>
+</p>
+
+<%= link_to 'Edit', edit_servicio_path(@servicio) %> |
+<%= link_to 'Back', servicios_path %>

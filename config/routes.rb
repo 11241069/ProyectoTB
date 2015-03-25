@@ -1,4 +1,6 @@
 Rails.application.routes.draw do
+  resources :servicios
+
   get 'welcome/homepage'
 
   resources :asesors

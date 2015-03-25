@@ -4,7 +4,7 @@ class CreateCita < ActiveRecord::Migration
       t.integer :auto_id
       t.string :Placa
       t.string :NombreCliente
-      t.integer :Estado
+      t.string :Estado
       t.string :TelefonoContacto
       t.datetime :FechaHoraEntrada
       t.integer :asesor_id
