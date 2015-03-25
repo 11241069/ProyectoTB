@@ -13,12 +13,34 @@ class WelcomeController < ApplicationController
   	@selectedCliente = Cliente.find_by(:id => params[:idCliente])
   	@autosCliente = @selectedCliente.Auto
   	@allAsesores = Asesor.all
+    @allMecanicos = Mecanico.all
   end
 
  def nuevaCita
- 	@nuevaCita = Citum.new(:auto_id => Auto.find_by(:Placa => params[:Placa]).id , :Placa => params[:Placa],:NombreCliente => params[:nombreCliente],:Estado => "NO_INGRESADO",:TelefonoContacto => params[:telefonoContacto],:FechaHoraEntrada => Time.new.inspect)
- 	
-
+  /tipo=0 es mantenimiento /
+  /INSERT INTO cita_mecanicos VALUES()/
+ 	@nuevaCita = Citum.new(:asesor_id => params[:asesorid] ,:auto_id => params[:autoid] , :Placa => Auto.find_by(:id=>params[:autoid]).Placa,:NombreCliente => params[:nombreCliente],:Estado => "INGRESADO",:TelefonoContacto => params[:telefonoContacto],:FechaHoraEntrada => Time.new.inspect)
+ 	@Mecan = params[:Mecan]
+  @Mecan = @Mecan.split("|")
+  if @nuevaCita.save
+    for i in 0..(@Mecan.count - 1)
+      string = ""
+      string = "INSERT INTO cita_mecanicos VALUES(#{@nuevaCita.id},#{@Mecan[i]})"
+        Citum.connection.execute(string)
+    end
+    if (params[:Tipo] == 0)
+      @nuevaCita.Servicio.create(Tipo: params[:Tipo],Descripcion: params[:Desc])
+    else
+      @Desc = params[:Desc]
+      @Desc = @Desc.split("|")
+      for i in 0..(@Desc.count - 1)
+        @nuevaCita.Servicio.create(Tipo: params[:Tipo],Descripcion: @Desc[i])
+      end
+    end
+    render plain: "Cita creada exitosamente con el Id de Cita :  #{@nuevaCita.id} "
+  else
+    render plain: "Error"
+  end
  	/if @nuevaCita.save?
  		render plain: "Cita creada exitosamente con el Id de Cita : " + @nuevaCita.id
  	else
