@@ -1,0 +1,24 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Asesor:</strong>
+  <%= @mecanico.asesor_id %>
+</p>
+
+<p>
+  <strong>Nombremecanico:</strong>
+  <%= @mecanico.NombreMecanico %>
+</p>
+
+<p>
+  <strong>Apellidomecanico:</strong>
+  <%= @mecanico.ApellidoMecanico %>
+</p>
+
+<p>
+  <strong>Numerotelefono:</strong>
+  <%= @mecanico.NumeroTelefono %>
+</p>
+
+<%= link_to 'Edit', edit_mecanico_path(@mecanico) %> |
+<%= link_to 'Back', mecanicos_path %>
