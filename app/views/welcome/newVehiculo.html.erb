@@ -1,0 +1,84 @@
+<!doctype html>
+<html>
+<title>Home</title>
+<head>
+		<meta charset="utf-8" />
+		<meta http-equiv="Content-type" content="text/html; charset=utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1" />
+		<script type="text/javascript" src="jquery.min.js"></script>
+		<link href="assets/stylesheets/bootstrap.min.css" rel="stylesheet">
+		<link href="assets/stylesheets/AutoHome.css" rel="stylesheet" type="text/css"/>
+		
+	<body data-spy="scroll" data-target=".navbar-collapse">
+		<nav id = "nav" class="navbar navbar-default">
+			<div id="logo">
+              <img src="assets/images/ams.png" HEIGHT="100" WIDTH="100"  alt="" />
+			</div>
+			<ul class="nav nav-tabs" id="Menu">
+				
+	  			<li id ="homebut" role="presentation" class="right-button" type="Button">Home</li>
+	  			<li id ="ContactBut" role="presentation" class="right-button" type="Button">Contacts</li>
+			</ul>
+		</nav>
+		<div id="AsesorIngresando">
+		<h2 align="center">Agregando Vehiculo</h2>
+		</br>
+			Propietario: <%= select("cliente", "auto", @allClientes.collect {|p| [ p.NombreCliente,p.id ]})%>
+		</br>
+			Placa del Auto: <input id= "placaAuto" type="text"></input>
+		</br>
+			Modelo del Auto: <input id= "modeloAuto" type= "text"></input>
+		</br>
+			Numero del Motor:	<input id= "numeroAuto" type= "text"></input>
+		</br>
+			<button align="center" id="createVehi" type="button" class="btn btn-lg btn"  >
+					<span>Crear Vehiculo</span>
+			</button>
+		</div>
+	</div>
+	<div id="ContPrin">
+		<h1 align="Center" style="color: #fff;">Contact</h1>
+		<p align="Center" style="color: #fff;">Hola aqui Se pondra nuestros Numeros Para todas las chicas guapas y sexis que nos quierean para haci poder tener mil novias</p>
+	</div>
+	
+
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.0/
+	jquery.min.js"></script>
+	<!-- Include all compiled plugins (below), or include individual files
+	as needed -->
+	<script src="assets/javascripts/bootstrap.min.js"></script>
+	<script>
+	$("#AsesorIngresando").show();
+	$("#ContPrin").hide();
+	$("#homebut").click(function(){
+			var url = "/homepage"
+  			window.location.href=url
+			
+		});
+	$("#ContactBut").click(function(){			
+			$("#homePrin").hide();
+			$("#ContPrin").show();
+		});
+	$("#createVehi").click(function(){
+  		$.ajax({
+	     		url: "/nuevoVehiculo",
+	      		type: "POST",
+	      		data: {cliente_id: $("#cliente_auto").val(), placaAuto: $("#placaAuto").val(), modeloAuto: $("#modeloAuto").val(), numeroAuto: $("#numeroAuto").val()},
+	      		success: function(data){                
+  				if (data != "Error"){
+  					alert(data);
+  					var url = "/homepage"
+  					window.location.href=url
+				}
+				else{
+					alert("ASD")				
+				}
+			}
+  		});
+	});</script>
+
+
+	</body>
+
+
+</html>
