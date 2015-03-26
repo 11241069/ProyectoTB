@@ -16,6 +16,10 @@
               <img src="assets/images/ams.png" HEIGHT="100" WIDTH="100"  alt="" />
 			</div>
 			<ul class="nav nav-tabs" id="Menu">
+
+				<li id ="CrearCli" role="presentation" class="right-button" type="Button">Crear Cliente
+				</li>
+
 				<li id ="hi" role="presentation" class="right-button" type="Button">Administración Empleado
 				<ul id="menucombo">
 	  					<li id="AAcesor" type="Button">Administrar Acesor</li>
@@ -137,7 +141,7 @@
 		</br>	
 		<form>
 			<div align="center"class="input-group">
-				<input align="center"  id="AdminVehiText"type="text" class="form-control" name="nombreMEC" placeholder="Clave Vehiculo" ></input>
+				<input align="center"  id="AdminVehiText"type="text" class="form-control" name="nombreVeh" placeholder="Placa del Vehiculo" ></input>
 			</div>
 			
 			</br>
@@ -295,7 +299,27 @@
 			}
   		});
 	});
-    
+
+    $("#ModificarVehiButton").click(function() {
+		
+  		$.ajax({
+			
+	     		url: "/checkAuto",
+	      		type: "POST",
+	      		data: {placaVeh: $("#AdminVehiText").val()},
+	      		success: function(data){                
+  				if (data == "true"){
+  					var url = "/modAuto?placaVeh=" + $("#AdminVehiText").val()
+  					window.location.href=url
+				}
+				else{
+					alert("Ese automovil no ha sido ingresado")				
+				}
+			}
+  		});
+	});
+	
+
     $("#BuscarCli").click(function() {
 		
   		$.ajax({
@@ -314,6 +338,18 @@
 			}
   		});
 	});
+
+    $("#CrearCli").click(function() {
+		var url = "/clientes/new"
+		window.location.href=url
+
+	});
+
+    $("#AgregarVehiButton").click(function(){
+    	var url = "/newVehiculo"
+    	window.location.href=url
+    });
+
 	$("#AgregarMecaButton").click(function() {
 		 			
   				var url = "/agregarMecanico"

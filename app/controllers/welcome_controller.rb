@@ -69,6 +69,11 @@ class WelcomeController < ApplicationController
  	@Mecan = params[:Mecan]
   @Mecan = @Mecan.split("|")
   if @nuevaCita.save
+	#Mymailer.send_email(Cliente.first()).deliver
+	#@client= Cliente.find_by_NombreCliente(params[:nombreCliente])
+	#@client = Cliente.first()	
+	puts '-----------------------------------------------------------------------------'
+	#puts @client.NombreCliente
     for i in 0..(@Mecan.count - 1)
       string = ""
       string = "INSERT INTO cita_mecanicos VALUES(#{@nuevaCita.id},#{@Mecan[i]})"
@@ -93,8 +98,34 @@ class WelcomeController < ApplicationController
  		render plain: "Error al guardar la cita"
  	end
  	/
+#@cli = Cliente.find_by(:NombreCliente=> params[:nombreCliente].split[0])
+Mymailer.send_email(Cliente.find_by(:NombreCliente=> params[:nombreCliente].split[0])).deliver
+#puts @cli.Email
  end
 
+ def newVehiculo
+  @allClientes = Cliente.all;
+ end
+
+ def nuevoVehiculo
+    @nuevoCarro =Auto.new(:cliente_id => params[:cliente_id], :Placa => params[:placaAuto], :Modelo => params[:modeloAuto], :NumeroMotor => params[:numeroAuto])
+    if @nuevoCarro.save
+      render plain: "Vehiculo creado exitosamente con el Id de Vehiculo :  #{@nuevoCarro.id} "
+    else
+      render plain: "Error"
+    end
+ end
+
+ def modAuto
+  @allClientes = Cliente.all
+  @selectedAuto = Auto.find_by(:Placa => params[:placaVeh])
+ end
+
+ def modificarVehiculo
+    @nuevoCarro = Auto.find_by(:Placa => params[:placaAuto])
+    @nuevoCarro.update(:cliente_id => params[:cliente_id], :Placa => params[:placaAuto], :Modelo => params[:modeloAuto], :NumeroMotor => params[:numeroAuto])
+    render plain: "Vehiculo modificado exitosamente con el Id de Vehiculo :  #{@nuevoCarro.id} "
+ end
 
   def checkCita
 	if Citum.where(:id => params[:idCita]).blank?
@@ -110,6 +141,14 @@ class WelcomeController < ApplicationController
 	else
 		 render plain: "true"
 	end
+  end
+
+  def checkAuto
+  if Auto.where(:Placa => params[:placaVeh]).blank?
+     render plain: "false"     
+  else
+     render plain: "true"
+  end
   end
 
 end
