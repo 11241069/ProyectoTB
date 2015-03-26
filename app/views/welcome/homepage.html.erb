@@ -141,7 +141,7 @@
 		</br>	
 		<form>
 			<div align="center"class="input-group">
-				<input align="center"  id="AdminVehiText"type="text" class="form-control" name="nombreMEC" placeholder="Clave Mecanico" ></input>
+				<input align="center"  id="AdminVehiText"type="text" class="form-control" name="nombreVeh" placeholder="Placa del Vehiculo" ></input>
 			</div>
 			
 			</br>
@@ -300,6 +300,26 @@
   		});
 	});
 
+    $("#ModificarVehiButton").click(function() {
+		
+  		$.ajax({
+			
+	     		url: "/checkAuto",
+	      		type: "POST",
+	      		data: {placaVeh: $("#AdminVehiText").val()},
+	      		success: function(data){                
+  				if (data == "true"){
+  					var url = "/modAuto?placaVeh=" + $("#AdminVehiText").val()
+  					window.location.href=url
+				}
+				else{
+					alert("Ese automovil no ha sido ingresado")				
+				}
+			}
+  		});
+	});
+	
+
     $("#BuscarCli").click(function() {
 		
   		$.ajax({
@@ -324,7 +344,13 @@
 		window.location.href=url
 
 	});
-$("#AgregarMecaButton").click(function() {
+
+    $("#AgregarVehiButton").click(function(){
+    	var url = "/newVehiculo"
+    	window.location.href=url
+    });
+
+	$("#AgregarMecaButton").click(function() {
 		 			
   				var url = "/agregarMecanico"
   				window.location.href=url
