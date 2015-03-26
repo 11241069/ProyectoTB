@@ -1,0 +1,115 @@
+<!doctype html>
+<html>
+	<head>
+		<title>Home</title>
+		<meta charset="utf-8" />
+		<meta http-equiv="Content-type" content="text/html; charset=utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1" />
+		<script type="text/javascript" src="jquery.min.js"></script>
+		<link href="assets/stylesheets/bootstrap.min.css" rel="stylesheet">
+		<link href="assets/stylesheets/AutoHome.css" rel="stylesheet" type="text/css"/>
+		
+	<body data-spy="scroll" data-target=".navbar-collapse">
+		<nav id = "nav" class="navbar navbar-default">
+			<div id="logo">
+				<%= image_tag("ams.png", size: "100x100", alt: "") %>
+			</div>
+			<ul class="nav nav-tabs" id="Menu">
+				
+	  			<li id ="homebut" role="presentation" class="right-button" type="Button">Home</li>
+	  			<li id ="ContactBut" role="presentation" class="right-button" type="Button">Contacts</li>
+			</ul>
+		</nav>
+	
+	<div id="homePrin">
+		<h1 align="Center" >Nueva cita</h1>
+		<h2 align="Center" >
+		<p align="center">
+		Nombre Cliente: <input id= "nameCliente" type="text" value="<%= @selectedCita.NombreCliente %> " readonly></input>
+		<br>
+		Telefono Contacto: <input id= "telefonoContacto" type="text" value="<%= @selectedCita.TelefonoContacto %> " readonly></input>
+		<br>
+		Placa de sus Autos: <input id= "placaAuto" type="text" value="<%= @selectedCita.Placa %> " readonly></input>
+		<br>
+		Asesor: <input id= "asesorId" type="text" value="<%= @selectedAsesor.NombreAsesor + "  " + @selectedAsesor.ApellidoAsesor %> " readonly></input>
+		<br>
+		Mecanicos: <%= select("mecanico", "all", @selectedCita.Mecanico.collect {|p| [ p.NombreMecanico,p.id ]},{},{"multiple" => true})%>
+		<br>
+		Servicios: <%= select("servicio", "all", @selectedCita.Servicio.collect {|p| [ p.Descripcion,p.id ]},{},{"multiple" => true})%>
+
+		<br>
+		<br>
+
+		Estado: 
+		<select id="ESTADO">
+  			<option value="NO_INGRESADO">No ingresado</option>
+  			<option value="INGRESEADO">Ingresado</option>
+  			<option value="EN_REPARACION">En reparacion</option>
+  			<option value="PENDIENTE_DE_REPUESTOS">Pendiente Repuestos</option>
+  			<option value="LISTO">Listo</option>
+  			<option value="AUTO_RETIRADO">Retirado</option>
+  			<option value="CANCELADO">Canceldo</option>
+		</select> 
+
+		<br>
+		Fecha de entrada: <input id="estimadaFecha" type="date" value="<%= @selectedCita.FechaHoraEntrada %>" readonly>
+		<br>
+		Fecha estimada entrega: <input id="estimadaFecha" type="date" value="<%= @selectedCita.FechaEstimadaEntrega %>">
+		<br>
+
+		<button align="center" id="createCita" type="button" class="btn btn-lg btn"  >
+					<span>Actualizar Estado</span>
+		</button>
+
+		</p>
+
+		
+
+	</div>
+	<div id="ContPrin">
+		<h1 align="Center" style="color: #fff;">Contact</h1>
+		<p align="Center" style="color: #fff;">Hola aqui Se pondra nuestros Numeros Para todas las chicas guapas y sexis que nos quierean para haci poder tener mil novias</p>
+	</div>
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.0/
+	jquery.min.js"></script>
+	<!-- Include all compiled plugins (below), or include individual files
+	as needed -->
+	<script src="assets/javascripts/bootstrap.min.js"></script>
+	<script>
+
+	$("#ESTADO").val("<%= @selectedCita.Estado %>")
+
+	$("#ContPrin").hide();
+	$("#homePrin").show();
+		
+		$("#homebut").click(function(){
+			var url = "/homepage"
+  			window.location.href=url
+			
+		});
+	$("#ContactBut").click(function(){			
+			$("#homePrin").hide();
+			$("#ContPrin").show();
+		});
+	$("#createCita").click(function(){
+  		$.ajax({
+	     		url: "/updateEstado",
+	      		type: "POST",
+	      		data: {Estado: $('#ESTADO').find(":selected").val() ,idCita: <%= @selectedCita.id %> ,PosibleDate: $("#estimadaFecha").val() },
+	      		success: function(data){                
+  				if (data != "Error"){
+  					alert(data);
+  					var url = "/homepage"
+  					window.location.href=url
+				}
+				else{
+					alert("ASD")				
+				}
+			}
+  		});
+	});
+	</script>
+	</body>
+
+</html>
+

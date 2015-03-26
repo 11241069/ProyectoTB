@@ -30,15 +30,18 @@ Rails.application.routes.draw do
    get '/newVehiculo' => 'welcome#newVehiculo'
    get '/agregarAsesor' => 'welcome#agregarAsesor'
    get '/modAuto' => 'welcome#modAuto'
+   get '/cambiarEstado' => 'welcome#cambiarEstado'
 
    post '/checkCita' => 'welcome#checkCita'
    post '/checkCliente' => 'welcome#checkCliente'
    post '/checkAuto' => 'welcome#checkAuto'
+   post '/checkAsesorAuto' => 'welcome#checkAsesorAuto'
 
    post '/nuevaCita' => 'welcome#nuevaCita'
    post '/nuevoMecanico' =>'welcome#nuevoMecanico'
    post '/nuevoAsesor' => 'welcome#nuevoAsesor'
-post '/nuevoVehiculo' => 'welcome#nuevoVehiculo'
+   post '/nuevoVehiculo' => 'welcome#nuevoVehiculo'
+   post '/updateEstado' => 'welcome#updateEstado'
 
    post '/modificarVehiculo' => 'welcome#modificarVehiculo'
    get '/modificarAsesor' => 'welcome#modificarAsesor'

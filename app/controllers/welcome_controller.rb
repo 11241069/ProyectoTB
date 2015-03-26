@@ -151,4 +151,28 @@ Mymailer.send_email(Cliente.find_by(:NombreCliente=> params[:nombreCliente].spli
   end
   end
 
+  def checkAsesorAuto
+    if Asesor.where(:id => params[:asesorId]).blank?
+       render plain: "false"     
+    else
+        if Asesor.find(params[:asesorId]).Citum.where(:Placa => params[:placaVeh]).blank?
+          render plain: "false"
+        else
+          render plain: "true"
+        end
+       
+    end
+  end
+
+  def cambiarEstado
+    @selectedAsesor = Asesor.find(params[:asesorId])
+    @selectedCita = @selectedAsesor.Citum.where(:Placa => params[:placaVeh]).first
+  end
+
+  def updateEstado
+    @selectedCita = Citum.find(params[:idCita])
+    @selectedCita.update(:Estado => params[:Estado] , :FechaEstimadaEntrega => params[:PosibleDate])
+    render plain: "Estado actualizado"
+  end
+
 end
