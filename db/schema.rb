@@ -39,9 +39,10 @@ ActiveRecord::Schema.define(version: 20150325190900) do
     t.string   "Estado"
     t.string   "TelefonoContacto"
     t.datetime "FechaHoraEntrada"
+    t.datetime "FechaEstimadaEntrega"
     t.integer  "asesor_id"
-    t.datetime "created_at",       null: false
-    t.datetime "updated_at",       null: false
+    t.datetime "created_at",           null: false
+    t.datetime "updated_at",           null: false
   end
 
   add_index "cita", ["asesor_id"], name: "index_cita_on_asesor_id"

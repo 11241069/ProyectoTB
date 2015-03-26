@@ -59,13 +59,14 @@
 			
 		<form>
 			<div class="input-group">
-				<input id="RCT2"type="text" class="form-control" name="ClaveVehiREG" placeholder="Clave Vehículo" ></input>
+				<input id="RCTP"type="text" class="form-control" name="claveAsesor" placeholder="Id de Asesor" ></input>
+				<input id="RCT2"type="text" class="form-control" name="ClaveVehiREG" placeholder="Placa de Auto" ></input>
 			</div>
 			
 			</br>
 			
 			
-			<button id="BuscarVeh" type="submit" class="btn btn-lg btn" >
+			<button id="BuscarVeh" type="button" class="btn btn-lg btn" >
 					<span>Buscar</span>
 			</button>
 		
@@ -117,7 +118,7 @@
 		</br>	
 		<form>
 			<div align="center"class="input-group">
-				<input align="center"  id="AdminAcesoText"type="text" class="form-control" name="nombreVEH" placeholder="Clave Asesor" ></input>
+				<input align="center"  id="AAT"type="text" class="form-control" name="nombreVEH" placeholder="Clave Asesor" ></input>
 			</div>
 			
 			</br>
@@ -298,6 +299,26 @@
 			}
   		});
 	});
+
+    $("#BuscarVeh").click(function() {
+		
+  		$.ajax({
+			
+	     		url: "/checkAsesorAuto",
+	      		type: "POST",
+	      		data: {asesorId: $("#RCTP").val(),placaVeh: $("#RCT2").val()},
+	      		success: function(data){                
+  				if (data == "true"){
+  					var url = "/cambiarEstado?asesorId=" + $("#RCTP").val()+"&placaVeh="+ $("#RCT2").val()
+  					window.location.href=url
+				}
+				else{
+					alert("Ese automovil no ha sido ingresado")				
+				}
+			}
+  		});
+	});
+
 
     $("#ModificarVehiButton").click(function() {
 		

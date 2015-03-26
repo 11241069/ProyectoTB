@@ -59,13 +59,18 @@
 			
 		<form>
 			<div class="input-group">
+<<<<<<< HEAD
+				<input id="RCTP"type="text" class="form-control" name="claveAsesor" placeholder="Id de Asesor" ></input>
+				<input id="RCT2"type="text" class="form-control" name="ClaveVehiREG" placeholder="Placa de Auto" ></input>
+=======
 				<input id="RCT2"type="text" class="form-control" name="ClaveVehiREG" placeholder="Clave Vehículo" ></input>
+>>>>>>> 9d3da077839d65857374208a05f0ca6c2027f549
 			</div>
 			
 			</br>
 			
 			
-			<button id="BuscarVeh" type="submit" class="btn btn-lg btn" >
+			<button id="BuscarVeh" type="button" class="btn btn-lg btn" >
 					<span>Buscar</span>
 			</button>
 		
@@ -94,11 +99,7 @@
 		</br>	
 		<form>
 			<div align="center"class="input-group">
-<<<<<<< HEAD
-				<input align="center"  id="AdminMecaText"type="text" class="form-control" name="nombreACE" placeholder="Clave Asesor" ></input>
-=======
 				<input align="center"  id="AdminMecaText"type="text" class="form-control" name="nombreACE" placeholder="Clave Mecanico" ></input>
->>>>>>> cd2c8aeac5073f6ddfdb02d7f46d395c0cb63013
 			</div>
 			
 			</br>
@@ -117,19 +118,11 @@
 		</form>
 	</div>
 	<div id="adminAcesor" style="width:800px; margin:0 auto;">
-<<<<<<< HEAD
 		<h1 align="center">Administración de Asesores</h1>
 		</br>	
 		<form>
 			<div align="center"class="input-group">
 				<input align="center"  id="AdminAcesoText"type="text" class="form-control" name="nombreVEH" placeholder="Clave Asesor" ></input>
-=======
-		<h1 align="center">Administración de Asesor</h1>
-		</br>	
-		<form>
-			<div align="center"class="input-group">
-				<input align="center"  id="AAT"type="text" class="form-control" name="nombreVEH" placeholder="Clave Asesor" ></input>
->>>>>>> cd2c8aeac5073f6ddfdb02d7f46d395c0cb63013
 			</div>
 			
 			</br>
@@ -310,6 +303,26 @@
 			}
   		});
 	});
+
+    $("#BuscarVeh").click(function() {
+		
+  		$.ajax({
+			
+	     		url: "/checkAsesorAuto",
+	      		type: "POST",
+	      		data: {asesorId: $("#RCTP").val(),placaVeh: $("#RCT2").val()},
+	      		success: function(data){                
+  				if (data == "true"){
+  					var url = "/cambiarEstado?asesorId=" + $("#RCTP").val()+"&placaVeh="+ $("#RCT2").val()
+  					window.location.href=url
+				}
+				else{
+					alert("Ese automovil no ha sido ingresado")				
+				}
+			}
+  		});
+	});
+
 
     $("#ModificarVehiButton").click(function() {
 		

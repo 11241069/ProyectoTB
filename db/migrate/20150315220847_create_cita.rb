@@ -7,6 +7,7 @@ class CreateCita < ActiveRecord::Migration
       t.string :Estado
       t.string :TelefonoContacto
       t.datetime :FechaHoraEntrada
+      t.datetime :FechaEstimadaEntrega
       t.integer :asesor_id
 
       t.timestamps null: false
