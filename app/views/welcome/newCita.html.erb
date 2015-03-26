@@ -22,8 +22,8 @@
 		</nav>
 	
 	<div id="homePrin">
-		<h1 align="Center" style="color: #fff;">Nueva cita</h1>
-		<h2 align="Center" style="color: #fff;">
+		<h1 align="Center" >Nueva cita</h1>
+		<h2 align="Center" >
 		<p align="center">
 		Nombre Cliente: <input id= "nameCliente" type="text" value="<%= (@selectedCliente.NombreCliente + " " + @selectedCliente.ApellidoCliente) %> " readonly></input>
 		<br>
@@ -116,9 +116,9 @@
 	$("#homePrin").show();
 		
 		$("#homebut").click(function(){
-
-			$("#homePrin").show();
-			$("#ContPrin").hide();
+			var url = "/homepage"
+  			window.location.href=url
+			
 		});
 	$("#ContactBut").click(function(){			
 			$("#homePrin").hide();
@@ -132,6 +132,8 @@
 	      		success: function(data){                
   				if (data != "Error"){
   					alert(data);
+  					var url = "/homepage"
+  					window.location.href=url
 				}
 				else{
 					alert("ASD")				
