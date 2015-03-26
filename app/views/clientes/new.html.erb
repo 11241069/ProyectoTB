@@ -12,7 +12,7 @@
 	<body data-spy="scroll" data-target=".navbar-collapse">
 		<nav id = "nav" class="navbar navbar-default">
 			<div id="logo">
-              <img src="assets/images/ams.png" HEIGHT="100" WIDTH="100"  alt="" />
+				<%= image_tag("ams.png", size: "100x100", alt: "") %>
 			</div>
 			<ul class="nav nav-tabs" id="Menu">
 				
@@ -24,7 +24,6 @@
 	<div id="homePrin">
 		<h1 align="Center" style="color: #fff;">Nuevo Cliente</h1>
 		<h2 align="Center" style="color: #fff;">
-		<p align="center">
 <%= form_for @cliente do |f| -%>
 	
 		Nombre: <%= f.text_field :NombreCliente %><br />
