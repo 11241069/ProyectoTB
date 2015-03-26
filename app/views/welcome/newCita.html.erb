@@ -22,8 +22,8 @@
 		</nav>
 	
 	<div id="homePrin">
-		<h1 align="Center" style="color: #fff;">Nueva cita</h1>
-		<h2 align="Center" style="color: #fff;">
+		<h1 align="Center" >Nueva cita</h1>
+		<h2 align="Center" >
 		<p align="center">
 		Nombre Cliente: <input id= "nameCliente" type="text" value="<%= (@selectedCliente.NombreCliente + " " + @selectedCliente.ApellidoCliente) %> " readonly></input>
 		<br>
@@ -31,9 +31,65 @@
 		<br>
 		Placa de sus Autos: <%= select("autos", "placas", @autosCliente.collect {|p| [ p.Placa,p.id ]})%>
 		<br>
-		Asesores: <%= select("asesor", "all", @allAsesores.collect {|p| [ p.NombreAsesor,p.id ]})%>
+		Asesor: <%= select("asesor", "all", @allAsesores.collect {|p| [ p.NombreAsesor,p.id ]})%>
+		<br>
+		Mecanicos: <%= select("mecanico", "all", @allMecanicos.collect {|p| [ p.NombreMecanico,p.id ]},{},{"multiple" => true})%>
+		<br>
+		<input type="radio" name="tipo" value="0" onclick="selected()" checked="checked">Mantenimiento  <input type="radio" name="tipo" value="1" onclick="selected()">Reparacion
 
-		<input type="radio" name="sex" value="male">Male	<input type="radio" name="sex" value="female">Female
+		<br>
+		<select id="MantoSelect" name="M">
+    		<option value="5000" selected="selected">5000</option>
+    		<option value="10000">10000</option>
+    		<option value="15000">15000</option>
+    		<option value="20000">20000</option>
+  		</select>
+		<select id="ReparacionSelect" name="R" multiple="true">
+    		<option value="fallo del motor de arranque" selected="selected">fallo del motor de arranque</option>
+    		<option value="fallo en el tren delantero">fallo en el tren delantero</option>
+    		<option value="ruido cerca del motor">ruido cerca del motor</option>
+  		</select>
+
+		<script>
+			var Mec = "";
+			var Desc = "";
+			$('#ReparacionSelect').hide();
+			$('#MantoSelect').show();
+			function selected(){
+				if ($('input[name=tipo]:checked').val() == "0"){
+					$('#ReparacionSelect').hide();
+					$('#MantoSelect').show();
+					
+				}else{
+					$('#MantoSelect').hide();
+					$('#ReparacionSelect').show();
+					
+				}
+			}
+			$( "#ReparacionSelect" )
+				.change(function () {
+					Desc = "";
+				$( "#ReparacionSelect option:selected" ).each(function() {
+					Desc += $( this ).text() + "|";
+				});
+			});
+			$( "#MantoSelect" )
+				.change(function () {
+					Desc = "";
+				$( "#MantoSelect option:selected" ).each(function() {
+					Desc += $( this ).text() + " ";
+				});
+			});
+
+			$( "#mecanico_all" )
+				.change(function () {
+					Mec = "";
+				$( "#mecanico_all option:selected" ).each(function() {
+					Mec += $( this ).val() + "|";
+				});
+			});
+		</script>
+
 
 		<br>
 		<button align="center" id="createCita" type="button" class="btn btn-lg btn"  >
@@ -55,30 +111,32 @@
 	as needed -->
 	<script src="assets/javascripts/bootstrap.min.js"></script>
 	<script>
+
 	$("#ContPrin").hide();
 	$("#homePrin").show();
 		
 		$("#homebut").click(function(){
-
-			$("#homePrin").show();
-			$("#ContPrin").hide();
+			var url = "/homepage"
+  			window.location.href=url
+			
 		});
 	$("#ContactBut").click(function(){			
 			$("#homePrin").hide();
 			$("#ContPrin").show();
 		});
-	$("crearCita").click(function(){
+	$("#createCita").click(function(){
   		$.ajax({
 	     		url: "/nuevaCita",
 	      		type: "POST",
-	      		data: {idCliente: $("#RCT1").val()},
+	      		data: {nombreCliente: $("#nameCliente").val(), telefonoContacto: $("#telefonoContacto").val() , Mecan: Mec, Tipo: $('input[name=tipo]:checked').val(), Desc: Desc,asesorid: $("#asesor_all").val(),autoid: $("#autos_placas").val()},
 	      		success: function(data){                
-  				if (data == "true"){
-  					var url = "/newCita?idCliente=" + $("#RCT1").val()
+  				if (data != "Error"){
+  					alert(data);
+  					var url = "/homepage"
   					window.location.href=url
 				}
 				else{
-					alert("No se encuentra Registrado")				
+					alert("ASD")				
 				}
 			}
   		});

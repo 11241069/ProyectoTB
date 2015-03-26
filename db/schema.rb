@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150316000631) do
+ActiveRecord::Schema.define(version: 20150325190900) do
 
   create_table "asesors", force: :cascade do |t|
     t.string   "NombreAsesor"
@@ -44,15 +44,16 @@ ActiveRecord::Schema.define(version: 20150316000631) do
     t.datetime "updated_at",       null: false
   end
 
+  add_index "cita", ["asesor_id"], name: "index_cita_on_asesor_id"
   add_index "cita", ["auto_id"], name: "index_cita_on_auto_id"
 
   create_table "cita_mecanicos", id: false, force: :cascade do |t|
-    t.integer "citum_id"
-    t.integer "mecanico_id"
+    t.integer "Citum_id"
+    t.integer "Mecanico_id"
   end
 
-  add_index "cita_mecanicos", ["citum_id"], name: "index_cita_mecanicos_on_citum_id"
-  add_index "cita_mecanicos", ["mecanico_id"], name: "index_cita_mecanicos_on_mecanico_id"
+  add_index "cita_mecanicos", ["Citum_id"], name: "index_cita_mecanicos_on_Citum_id"
+  add_index "cita_mecanicos", ["Mecanico_id"], name: "index_cita_mecanicos_on_Mecanico_id"
 
   create_table "clientes", force: :cascade do |t|
     t.string   "NombreCliente"
@@ -80,5 +81,13 @@ ActiveRecord::Schema.define(version: 20150316000631) do
   end
 
   add_index "numeros_telefonos", ["cliente_id"], name: "index_numeros_telefonos_on_cliente_id"
+
+  create_table "servicios", force: :cascade do |t|
+    t.integer  "citum_id"
+    t.integer  "Tipo"
+    t.string   "Descripcion"
+    t.datetime "created_at",  null: false
+    t.datetime "updated_at",  null: false
+  end
 
 end

@@ -1,4 +1,6 @@
 Rails.application.routes.draw do
+  resources :servicios
+
   get 'welcome/homepage'
 
   resources :asesors
@@ -21,11 +23,16 @@ Rails.application.routes.draw do
 
   # Example of regular route:
   #   get 'products/:id' => 'catalog#view'
+   get '/agregarMecanico' => 'welcome#agregarMecanico'
    get '/Seguimiento' => 'welcome#seguimiento'
+   get '/homepage'=>'welcome#homepage'
    get '/newCita' => 'welcome#newCita'
+   get '/agregarAsesor' => 'welcome#agregarAsesor'
    post '/checkCita' => 'welcome#checkCita'
    post '/checkCliente' => 'welcome#checkCliente'
    post '/nuevaCita' => 'welcome#nuevaCita'
+   post '/nuevoMecanico' =>'welcome#nuevoMecanico'
+   post '/nuevoAsesor' => 'welcome#nuevoAsesor'
 
   # Example of named route that can be invoked with purchase_url(id: product.id)
   #   get 'products/:id/purchase' => 'catalog#purchase', as: :purchase
