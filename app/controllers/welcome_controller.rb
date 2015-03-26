@@ -3,8 +3,31 @@ class WelcomeController < ApplicationController
   def agregarMecanico
     @allAsesores=Asesor.all
   end
+
   def agregarAsesor
   end
+  
+  def modificarMecanico
+    @allAsesores = Asesor.all
+    @selectMeca = Mecanico.find_by(:id=>params[:idMeca]) 
+  end
+
+  def actuaMecanico
+    @selectMeca= Mecanico.find_by(:id=>params[:idMeca])
+    @selectMeca.update(:asesor_id=>params[:asesorid],:NombreMecanico=>params[:nameMeca], :ApellidoMecanico=>params[:apellidoMeca], :NumeroTelefono=>params[:telefonoMeca])
+    render plain: "Bien"
+  end
+
+  def actuaAsesor
+    @selectAsesor = Asesor.find(params[:idAse])
+    @selectAsesor.update(:NombreAsesor=>params[:nombreAse], :ApellidoAsesor=>params[:apellidoAse],:NumeroTelefono=>params[:telefonoAse])
+    render plain: "Bien"
+  end
+
+  def modificarAsesor
+    @selectAsesor = Asesor.find_by(:id=>params[:idAsesor])
+  end
+
   def nuevoAsesor
     @nuevoAsesor= Asesor.new(:NombreAsesor=>params[:nombreAse],:ApellidoAsesor=>params[:apellidoAse],:NumeroTelefono=>params[:telefonoAse], :created_at=>Time.new.inspect)
     if @nuevoAsesor.save
@@ -13,6 +36,7 @@ class WelcomeController < ApplicationController
       render plain: "Error"
     end  
   end
+
   def nuevoMecanico
      @nuevoMecanico =Mecanico.new(:asesor_id => params[:asesorid], :NombreMecanico => params[:nombreMeca], :ApellidoMecanico => params[:apellidoMeca], :NumeroTelefono => params[:telefonoMeca], :created_at=> Time.new.inspect)
     if @nuevoMecanico.save
@@ -21,6 +45,7 @@ class WelcomeController < ApplicationController
       render plain: "Error"
     end
   end
+
   def homepage
   end
 

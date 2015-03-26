@@ -95,7 +95,7 @@
 		</br>	
 		<form>
 			<div align="center"class="input-group">
-				<input align="center"  id="AdminMecaText"type="text" class="form-control" name="nombreACE" placeholder="Clave Acesor" ></input>
+				<input align="center"  id="AdminMecaText"type="text" class="form-control" name="nombreACE" placeholder="Clave Mecanico" ></input>
 			</div>
 			
 			</br>
@@ -114,17 +114,17 @@
 		</form>
 	</div>
 	<div id="adminAcesor" style="width:800px; margin:0 auto;">
-		<h1 align="center">Administración de Vehiculos</h1>
+		<h1 align="center">Administración de Asesor</h1>
 		</br>	
 		<form>
 			<div align="center"class="input-group">
-				<input align="center"  id="AdminAcesoText"type="text" class="form-control" name="nombreVEH" placeholder="Clave Vehiculo" ></input>
+				<input align="center"  id="AAT"type="text" class="form-control" name="nombreVEH" placeholder="Clave Asesor" ></input>
 			</div>
 			
 			</br>
 			</br>
 			
-			<button align="center" id="ModificarAcesorButton" type="button" class="btn btn-lg btn"  >
+			<button align="center" id="MAB" type="button" class="btn btn-lg btn"  >
 					<span>Modificar</span>
 			</button>
 		</br>
@@ -141,7 +141,11 @@
 		</br>	
 		<form>
 			<div align="center"class="input-group">
-				<input align="center"  id="AdminVehiText"type="text" class="form-control" name="nombreMEC" placeholder="Clave Mecanico" ></input>
+<<<<<<< HEAD
+				<input align="center"  id="AdminVehiText"type="text" class="form-control" name="nombreMEC" placeholder="Clave Vehiculo" ></input>
+=======
+				<input align="center"  id="AdminVehiText"type="text" class="form-control" name="nombreVeh" placeholder="Placa del Vehiculo" ></input>
+>>>>>>> 37bcb052aea5d4a7dfe4dbf657081093297e5039
 			</div>
 			
 			</br>
@@ -299,7 +303,31 @@
 			}
   		});
 	});
+<<<<<<< HEAD
+    
+=======
 
+    $("#ModificarVehiButton").click(function() {
+		
+  		$.ajax({
+			
+	     		url: "/checkAuto",
+	      		type: "POST",
+	      		data: {placaVeh: $("#AdminVehiText").val()},
+	      		success: function(data){                
+  				if (data == "true"){
+  					var url = "/modAuto?placaVeh=" + $("#AdminVehiText").val()
+  					window.location.href=url
+				}
+				else{
+					alert("Ese automovil no ha sido ingresado")				
+				}
+			}
+  		});
+	});
+	
+
+>>>>>>> 37bcb052aea5d4a7dfe4dbf657081093297e5039
     $("#BuscarCli").click(function() {
 		
   		$.ajax({
@@ -318,13 +346,18 @@
 			}
   		});
 	});
-<<<<<<< HEAD
 
     $("#CrearCli").click(function() {
 		var url = "/clientes/new"
 		window.location.href=url
 
-=======
+	});
+
+    $("#AgregarVehiButton").click(function(){
+    	var url = "/newVehiculo"
+    	window.location.href=url
+    });
+
 	$("#AgregarMecaButton").click(function() {
 		 			
   				var url = "/agregarMecanico"
@@ -336,7 +369,15 @@
   				var url = "/agregarAsesor"
   				window.location.href=url
 			
->>>>>>> bcbdc619f08d55965acca4cc5c3ad2722593dd82
+	});
+
+	$("#MAB").click(function() {
+		var url = "/modificarAsesor?idAsesor="+ $("#AAT").val()
+		window.location.href=url
+	});
+	$("#ModificarMecaButton").click(function() {
+		var url = "/modificarMecanico?idMeca="+ $("#AdminMecaText").val()
+		window.location.href=url
 	});
 	</script>
 	</body>
