@@ -91,7 +91,7 @@
 		</br>	
 		<form>
 			<div align="center"class="input-group">
-				<input align="center"  id="AdminMecaText"type="text" class="form-control" name="nombreACE" placeholder="Clave Acesor" ></input>
+				<input align="center"  id="AdminMecaText"type="text" class="form-control" name="nombreACE" placeholder="Clave Mecanico" ></input>
 			</div>
 			
 			</br>
@@ -110,17 +110,17 @@
 		</form>
 	</div>
 	<div id="adminAcesor" style="width:800px; margin:0 auto;">
-		<h1 align="center">Administración de Vehiculos</h1>
+		<h1 align="center">Administración de Asesor</h1>
 		</br>	
 		<form>
 			<div align="center"class="input-group">
-				<input align="center"  id="AdminAcesoText"type="text" class="form-control" name="nombreVEH" placeholder="Clave Vehiculo" ></input>
+				<input align="center"  id="AAT" type="text" placeholder="Clave Asesor" ></input>
 			</div>
 			
 			</br>
 			</br>
 			
-			<button align="center" id="ModificarAcesorButton" type="button" class="btn btn-lg btn"  >
+			<button align="center" id="MAB" type="button" class="btn btn-lg btn"  >
 					<span>Modificar</span>
 			</button>
 		</br>
@@ -137,7 +137,7 @@
 		</br>	
 		<form>
 			<div align="center"class="input-group">
-				<input align="center"  id="AdminVehiText"type="text" class="form-control" name="nombreMEC" placeholder="Clave Mecanico" ></input>
+				<input align="center"  id="AdminVehiText"type="text" class="form-control" name="nombreMEC" placeholder="Clave Vehiculo" ></input>
 			</div>
 			
 			</br>
@@ -295,7 +295,7 @@
 			}
   		});
 	});
-
+    
     $("#BuscarCli").click(function() {
 		
   		$.ajax({
@@ -326,6 +326,13 @@
   				window.location.href=url
 			
 	});
+
+	$("#MAB").click(function() {
+    	
+  					var url = "/modificarAsesor?idAsesor="+ $("#AAT").val()
+  					window.location.href=url
+				
+    });
 	</script>
 	</body>
 

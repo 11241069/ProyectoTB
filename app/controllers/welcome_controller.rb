@@ -3,8 +3,25 @@ class WelcomeController < ApplicationController
   def agregarMecanico
     @allAsesores=Asesor.all
   end
+
   def agregarAsesor
   end
+
+  def actuaAsesor
+    @selectAsesor2 = Asesor.find_by(:id=>params[:idAsesor])
+    @selectAsesor2.update(:NombreAsesor=>params[nombreAse], :ApellidoAsesor=>params[:apellidoAse],:NumeroTelefono=>params[:telefonoAse])
+    if @selectAsesor.save
+        render plain: "Actualizado nuevo Nombre: #{@selectAsesor.NombreAsesor}"
+    else
+        render plain: "NO paso Nada"
+    end
+    render plain: "shit"
+  end
+
+  def modificarAsesor
+    @selectAsesor = Asesor.find_by(:id=>params[:idAsesor])
+  end
+
   def nuevoAsesor
     @nuevoAsesor= Asesor.new(:NombreAsesor=>params[:nombreAse],:ApellidoAsesor=>params[:apellidoAse],:NumeroTelefono=>params[:telefonoAse], :created_at=>Time.new.inspect)
     if @nuevoAsesor.save
@@ -13,6 +30,7 @@ class WelcomeController < ApplicationController
       render plain: "Error"
     end  
   end
+
   def nuevoMecanico
      @nuevoMecanico =Mecanico.new(:asesor_id => params[:asesorid], :NombreMecanico => params[:nombreMeca], :ApellidoMecanico => params[:apellidoMeca], :NumeroTelefono => params[:telefonoMeca], :created_at=> Time.new.inspect)
     if @nuevoMecanico.save
@@ -21,6 +39,7 @@ class WelcomeController < ApplicationController
       render plain: "Error"
     end
   end
+
   def homepage
   end
 
