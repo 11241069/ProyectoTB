@@ -1,5 +1,26 @@
 class WelcomeController < ApplicationController
 	skip_before_filter :verify_authenticity_token
+  def agregarMecanico
+    @allAsesores=Asesor.all
+  end
+  def agregarAsesor
+  end
+  def nuevoAsesor
+    @nuevoAsesor= Asesor.new(:NombreAsesor=>params[:nombreAse],:ApellidoAsesor=>params[:apellidoAse],:NumeroTelefono=>params[:telefonoAse], :created_at=>Time.new.inspect)
+    if @nuevoAsesor.save
+      render plain: "Asesor creado exitosamente con el Id de Asesor :  #{@nuevoAsesor.id} "
+    else
+      render plain: "Error"
+    end  
+  end
+  def nuevoMecanico
+     @nuevoMecanico =Mecanico.new(:asesor_id => params[:asesorid], :NombreMecanico => params[:nombreMeca], :ApellidoMecanico => params[:apellidoMeca], :NumeroTelefono => params[:telefonoMeca], :created_at=> Time.new.inspect)
+    if @nuevoMecanico.save
+      render plain: "Mecanico creado exitosamente con el Id de Mecanico :  #{@nuevoMecanico.id} "
+    else
+      render plain: "Error"
+    end
+  end
   def homepage
   end
 
