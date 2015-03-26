@@ -63,6 +63,8 @@ class WelcomeController < ApplicationController
         @nuevaCita.Servicio.create(Tipo: params[:Tipo],Descripcion: @Desc[i])
       end
     end
+
+    Mymailer.send_email(Cliente.find(Auto.find(@nuevaCita.auto_id))).deliver
     render plain: "Cita creada exitosamente con el Id de Cita :  #{@nuevaCita.id} "
   else
     render plain: "Error"
@@ -74,7 +76,7 @@ class WelcomeController < ApplicationController
  	end
  	/
 #@cli = Cliente.find_by(:NombreCliente=> params[:nombreCliente].split[0])
-Mymailer.send_email(Cliente.find_by(:NombreCliente=> params[:nombreCliente].split[0])).deliver
+#Mymailer.send_email(Cliente.find_by(:NombreCliente=> params[:nombreCliente].split[0])).deliver
 #puts @cli.Email
  end
 
