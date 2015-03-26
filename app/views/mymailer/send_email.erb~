@@ -1,0 +1,11 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta content='text/html; charset=UTF-8' http-equiv='Content-Type' />
+  </head>
+  <body>
+    <h1><%= @Cliente.NombreCliente %> <%= @Cliente.ApellidoCliente %></h1>
+    <p>Su cita ha sido registrada. Su ID de cita es <%= Citum.last():id %>, guárdelo para hacer seguimiento y futura referencia.</p>
+  </body>
+</html>
+

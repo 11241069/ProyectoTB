@@ -1,0 +1,80 @@
+<!doctype html>
+<html>
+	<head>
+		<title>Home</title>
+		<meta charset="utf-8" />
+		<meta http-equiv="Content-type" content="text/html; charset=utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1" />
+		<script type="text/javascript" src="jquery.min.js"></script>
+		<link href="assets/stylesheets/bootstrap.min.css" rel="stylesheet">
+		<link href="assets/stylesheets/AutoHome.css" rel="stylesheet" type="text/css"/>
+		
+	<body data-spy="scroll" data-target=".navbar-collapse">
+		<nav id = "nav" class="navbar navbar-default">
+			<div id="logo">
+              <img src="assets/images/ams.png" HEIGHT="100" WIDTH="100"  alt="" />
+			</div>
+			<ul class="nav nav-tabs" id="Menu">
+				
+	  			<li id ="homebut" role="presentation" class="right-button" type="Button">Home</li>
+	  			<li id ="ContactBut" role="presentation" class="right-button" type="Button">Contacts</li>
+			</ul>
+		</nav>
+	
+	<div id="homePrin">
+		<h1 align="Center" style="color: #fff;">Nuevo Cliente</h1>
+		<h2 align="Center" style="color: #fff;">
+		<p align="center">
+<%= form_for @cliente do |f| -%>
+	
+		Nombre: <%= f.text_field :NombreCliente %><br />
+		Apellido: <%= f.text_field :ApellidoCliente %><br />
+		Email: <%= f.text_field :Email %><br />
+		Dirección: <%= f.text_field :Direccion %><br />
+		<%= f.submit%>
+<% end -%>
+
+	</div>
+
+	<div id="ContPrin">
+		<h1 align="Center" style="color: #fff;">Contact</h1>
+		<p align="Center" style="color: #fff;">Hola aqui Se pondra nuestros Numeros Para todas las chicas guapas y sexis que nos quierean para haci poder tener mil novias</p>
+	</div>
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.0/
+	jquery.min.js"></script>
+	<!-- Include all compiled plugins (below), or include individual files
+	as needed -->
+	<script src="assets/javascripts/bootstrap.min.js"></script>
+	<script>
+	$("#ContPrin").hide();
+	$("#homePrin").show();
+		
+		$("#homebut").click(function(){
+
+			var url = "/welcome/homepage"
+  			window.location.href=url
+		});
+	$("#ContactBut").click(function(){			
+			$("#homePrin").hide();
+			$("#ContPrin").show();
+		});
+	$("crearCita").click(function(){
+  		$.ajax({
+	     		url: "/nuevaCita",
+	      		type: "POST",
+	      		data: {idCliente: $("#RCT1").val()},
+	      		success: function(data){                
+  				if (data == "true"){
+  					var url = "/newCita?idCliente=" + $("#RCT1").val()
+  					window.location.href=url
+				}
+				else{
+					alert("No se encuentra Registrado")				
+				}
+			}
+  		});
+	});
+	</script>
+	</body>
+
+</html>
