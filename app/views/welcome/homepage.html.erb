@@ -16,6 +16,10 @@
               <img src="assets/images/ams.png" HEIGHT="100" WIDTH="100"  alt="" />
 			</div>
 			<ul class="nav nav-tabs" id="Menu">
+
+				<li id ="CrearCli" role="presentation" class="right-button" type="Button">Crear Cliente
+				</li>
+
 				<li id ="hi" role="presentation" class="right-button" type="Button">Administración Empleado
 				<ul id="menucombo">
 	  					<li id="AAcesor" type="Button">Administrar Acesor</li>
@@ -313,6 +317,12 @@
 				}
 			}
   		});
+	});
+
+    $("#CrearCli").click(function() {
+		var url = "/clientes/new"
+		window.location.href=url
+
 	});
 	</script>
 	</body>
