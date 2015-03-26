@@ -10,7 +10,7 @@ ActionMailer::Base.smtp_settings = {
   domain: "example.com",
   authentication: "plain",
   enable_starttls_auto: true,
-  user_name: "itsnotdaemonaeon@gmail.com",
-  password: "macarena23"
+  user_name: "itsdaemonaeon@gmail.com",
+  password: "GGbenqdaemonprox123"
 }
 

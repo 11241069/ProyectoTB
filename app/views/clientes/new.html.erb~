@@ -25,6 +25,7 @@
 		<h1 align="Center" style="color: #fff;">Nuevo Cliente</h1>
 		<h2 align="Center" style="color: #fff;">
 		<p align="center">
+<div class = "formita">
 <%= form_for @cliente do |f| -%>
 	
 		Nombre: <%= f.text_field :NombreCliente %><br />
@@ -33,6 +34,7 @@
 		Dirección: <%= f.text_field :Direccion %><br />
 		<%= f.submit%>
 <% end -%>
+</div>
 
 	</div>
 

@@ -13,29 +13,28 @@
 	<body data-spy="scroll" data-target=".navbar-collapse">
 		<nav id = "nav" class="navbar navbar-default">
 			<div id="logo">
-              <img src="assets/images/ams.png" HEIGHT="100" WIDTH="100"  alt="" />
+				<%= image_tag("ams.png", size: "100x100", alt: "") %>
 			</div>
 			<ul class="nav nav-tabs" id="Menu">
-
+				<li id ="homebut" role="presentation" class="right-button" type="Button">Home</li>
 				<li id ="CrearCli" role="presentation" class="right-button" type="Button">Crear Cliente
 				</li>
 
 				<li id ="hi" role="presentation" class="right-button" type="Button">Administración Empleado
 				<ul id="menucombo">
-	  					<li id="AAcesor" type="Button">Administrar Acesor</li>
-	  					<li id="AMecanico" type="Button">Administrar Mecanico</li>
-	  					<li id="AVehi" type="Button">Administrar Vehiculo</li>
+	  					<li id="AAcesor" type="Button">Administrar Asesor</li>
+	  					<li id="AMecanico" type="Button">Administrar Mecánico</li>
+	  					<li id="AVehi" type="Button">Administrar Vehículo</li>
 	  				</ul>
 	  			</li>
 	  			<li id ="hi" role="presentation" class="right-button" type="Button">Registro
 	  				<ul id="menucombo">
 	  					<li id="RCitas" type="Button">Registro Citas</li>
-	  					<li id="RVeh" type="Button">Registro Vehiculo</li>
+	  					<li id="RVeh" type="Button">Registro Vehículo</li>
 	  				</ul>
 	  			</li>
 	  			<li id ="SeguimientoVehi" role="presentation" class="right-button" type="Button">Seguimiento</li>
-	  			<li id ="homebut" role="presentation" class="right-button" type="Button">Home</li>
-	  			<li id ="ContactBut" role="presentation" class="right-button" type="Button">Contacts</li>
+	  			<li id ="ContactBut" role="presentation" class="right-button" type="Button">Contacto</li>
 			</ul>
 		</nav>
 	<div id="RegistrarCita" style="width:800px; margin:0 auto;">
@@ -56,11 +55,11 @@
 		</form>
 	</div>
 	<div id="RegistrarVehi" style="width:800px; margin:0 auto;">
-		<h1>Registrar Vehiculo</h1>
+		<h1>Registrar Vehículo</h1>
 			
 		<form>
 			<div class="input-group">
-				<input id="RCT2"type="text" class="form-control" name="ClaveVehiREG" placeholder="Clave Vehiculo" ></input>
+				<input id="RCT2"type="text" class="form-control" name="ClaveVehiREG" placeholder="Clave Vehículo" ></input>
 			</div>
 			
 			</br>
@@ -77,7 +76,7 @@
 			
 		<form>
 			<div class="input-group">
-				<input id="RCT"type="text" class="form-control" name="ClaveCita" placeholder="Codigo de la Cita" ></input>
+				<input id="RCT"type="text" class="form-control" name="ClaveCita" placeholder="Código de la Cita" ></input>
 			</div>
 			
 			</br>
@@ -91,11 +90,15 @@
 		</form>
 	</div>
 	<div id="adminmecanico" style="width:800px; margin:0 auto;">
-		<h1 align="center">Administración de Mecanicos</h1>
+		<h1 align="center">Administración de Mecánicos</h1>
 		</br>	
 		<form>
 			<div align="center"class="input-group">
+<<<<<<< HEAD
+				<input align="center"  id="AdminMecaText"type="text" class="form-control" name="nombreACE" placeholder="Clave Asesor" ></input>
+=======
 				<input align="center"  id="AdminMecaText"type="text" class="form-control" name="nombreACE" placeholder="Clave Mecanico" ></input>
+>>>>>>> cd2c8aeac5073f6ddfdb02d7f46d395c0cb63013
 			</div>
 			
 			</br>
@@ -114,11 +117,19 @@
 		</form>
 	</div>
 	<div id="adminAcesor" style="width:800px; margin:0 auto;">
+<<<<<<< HEAD
+		<h1 align="center">Administración de Asesores</h1>
+		</br>	
+		<form>
+			<div align="center"class="input-group">
+				<input align="center"  id="AdminAcesoText"type="text" class="form-control" name="nombreVEH" placeholder="Clave Asesor" ></input>
+=======
 		<h1 align="center">Administración de Asesor</h1>
 		</br>	
 		<form>
 			<div align="center"class="input-group">
 				<input align="center"  id="AAT"type="text" class="form-control" name="nombreVEH" placeholder="Clave Asesor" ></input>
+>>>>>>> cd2c8aeac5073f6ddfdb02d7f46d395c0cb63013
 			</div>
 			
 			</br>
@@ -137,15 +148,11 @@
 		</form>
 	</div>
 	<div id="adminVehi" style="width:800px; margin:0 auto;">
-		<h1 align="center">Administración de vehiculos</h1>
+		<h1 align="center">Administración de Vehículos</h1>
 		</br>	
 		<form>
 			<div align="center"class="input-group">
-<<<<<<< HEAD
-				<input align="center"  id="AdminVehiText"type="text" class="form-control" name="nombreMEC" placeholder="Clave Vehiculo" ></input>
-=======
-				<input align="center"  id="AdminVehiText"type="text" class="form-control" name="nombreVeh" placeholder="Placa del Vehiculo" ></input>
->>>>>>> 37bcb052aea5d4a7dfe4dbf657081093297e5039
+				<input align="center"  id="AdminVehiText"type="text" class="form-control" name="nombreVeh" placeholder="Placa del Vehículo" ></input>
 			</div>
 			
 			</br>
@@ -165,11 +172,11 @@
 	</div>
 	<div id="homePrin">
 		<h1 align="Center" style="color: #fff;">Home</h1>
-		<p align="Center" style="color: #fff;">Hola aqui Se pondra pura cosas del proyecto y sobre nosotros y que hacemos y blablablabla</p>
+		<p align="Center" style="color: #fff;">Proyecto de Teoría de Base de Datos I</p>
 	</div>
 	<div id="ContPrin">
-		<h1 align="Center" style="color: #fff;">Contact</h1>
-		<p align="Center" style="color: #fff;">Hola aqui Se pondra nuestros Numeros Para todas las chicas guapas y sexis que nos quierean para haci poder tener mil novias</p>
+		<h1 align="Center" style="color: #fff;">Contacto</h1>
+		<p align="Center" style="color: #fff;">Email: kevin_bara@unitec.edu</p>
 	</div>
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.0/
 	jquery.min.js"></script>
@@ -303,9 +310,6 @@
 			}
   		});
 	});
-<<<<<<< HEAD
-    
-=======
 
     $("#ModificarVehiButton").click(function() {
 		
@@ -327,7 +331,6 @@
 	});
 	
 
->>>>>>> 37bcb052aea5d4a7dfe4dbf657081093297e5039
     $("#BuscarCli").click(function() {
 		
   		$.ajax({
