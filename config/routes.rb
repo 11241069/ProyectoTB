@@ -38,9 +38,13 @@ Rails.application.routes.draw do
    post '/nuevaCita' => 'welcome#nuevaCita'
    post '/nuevoMecanico' =>'welcome#nuevoMecanico'
    post '/nuevoAsesor' => 'welcome#nuevoAsesor'
-   post '/nuevoVehiculo' => 'welcome#nuevoVehiculo'
+post '/nuevoVehiculo' => 'welcome#nuevoVehiculo'
 
    post '/modificarVehiculo' => 'welcome#modificarVehiculo'
+   get '/modificarAsesor' => 'welcome#modificarAsesor'
+   post '/actuaAsesor' => 'welcome#actuaAsesor'
+   get '/modificarMecanico'=> 'welcome#modificarMecanico'
+   post '/actuaMecanico'=>'welcome#actuaMecanico'
 
   # Example of named route that can be invoked with purchase_url(id: product.id)
   #   get 'products/:id/purchase' => 'catalog#purchase', as: :purchase

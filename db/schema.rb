@@ -36,7 +36,7 @@ ActiveRecord::Schema.define(version: 20150325190900) do
     t.integer  "auto_id"
     t.string   "Placa"
     t.string   "NombreCliente"
-    t.integer  "Estado"
+    t.string   "Estado"
     t.string   "TelefonoContacto"
     t.datetime "FechaHoraEntrada"
     t.integer  "asesor_id"
