@@ -6,7 +6,7 @@
 
 #nav{
 	height: 100px;
-	background: #70756A;
+	background: #899F6E;
 
 }
 #logo{
@@ -31,11 +31,19 @@ body {
 }
 
 
+text_field{
+  width: 4em;
+  float: left;
+  text-align: right;
+  margin-right: 0.5em;
+  display: block
+}
+
 ul li {
   font: bold 12px/18px sans-serif;
   display: inline-block;
   margin-right: 0px;
-  background: #70756A;
+  background: #849A6A;
   padding: 15px 20px;
   color: #fff;
   cursor: pointer;
@@ -97,7 +105,8 @@ p{
 	text-align: center;
 	position: fixed;
 	top: 230px;
-	left: 400px;
+  	left: 30%; 
+  	right: 30%;
 }
 #RegistrarVehi{
 
@@ -108,7 +117,8 @@ p{
 	text-align: center;
 	position: fixed;
 	top: 230px;
-	left: 400px;
+  	left: 30%; 
+  	right: 30%;
 }
 #Seguimiento{
  background: #70756A;
@@ -118,7 +128,8 @@ p{
   text-align: center;
   position: fixed;
   top: 230px;
-  left: 400px; 
+  left: 30%; 
+  right: 30%; 
   text-align: center;
 
 }
@@ -130,7 +141,8 @@ p{
   text-align: center;
   position: fixed;
   top: 25%;
-  left: 25%; 
+  left: 30%;
+  right: 30%
   text-align: center;
   
 }
@@ -142,7 +154,8 @@ p{
   text-align: center;
   position: fixed;
   top: 25%;
-  left: 25%; 
+  left: 30%; 
+  right: 30%;
   text-align: center;
   
 }
@@ -154,16 +167,18 @@ p{
   text-align: center;
   position: fixed;
   top: 25%;
-  left: 25%; 
+  left: 30%; 
+  right: 30%;
   text-align: center;
   
 }
 #homePrin{
   background: #70756A;
   position: fixed;
+  color: #fff;
   top: 23%;
-  left: 9%;
-  width: 1000px;
+  left: 10%;
+  right: 10%;
   height: 500px;
   text-align: center;
 }
@@ -171,8 +186,8 @@ p{
   background: #70756A;
   position: fixed;
   top: 23%;
-  left: 9%;
-  width: 1000px;
+  left: 10%;
+  right: 10%;
   height: 500px;
   
 }
@@ -211,7 +226,8 @@ p{
   text-align: center;
   position: fixed;
   top: 30%;
-  left: 35%; 
+  left: 30%; 
+  right: 30%;
   text-align: center;
 }
 #AsesorIngresando{
@@ -222,6 +238,7 @@ p{
   text-align: center;
   position: fixed;
   top: 30%;
-  left: 35%; 
+  left: 30%; 
+  right: 30%; 
   text-align: center;
 }

@@ -1,5 +1,26 @@
 class WelcomeController < ApplicationController
 	skip_before_filter :verify_authenticity_token
+  def agregarMecanico
+    @allAsesores=Asesor.all
+  end
+  def agregarAsesor
+  end
+  def nuevoAsesor
+    @nuevoAsesor= Asesor.new(:NombreAsesor=>params[:nombreAse],:ApellidoAsesor=>params[:apellidoAse],:NumeroTelefono=>params[:telefonoAse], :created_at=>Time.new.inspect)
+    if @nuevoAsesor.save
+      render plain: "Asesor creado exitosamente con el Id de Asesor :  #{@nuevoAsesor.id} "
+    else
+      render plain: "Error"
+    end  
+  end
+  def nuevoMecanico
+     @nuevoMecanico =Mecanico.new(:asesor_id => params[:asesorid], :NombreMecanico => params[:nombreMeca], :ApellidoMecanico => params[:apellidoMeca], :NumeroTelefono => params[:telefonoMeca], :created_at=> Time.new.inspect)
+    if @nuevoMecanico.save
+      render plain: "Mecanico creado exitosamente con el Id de Mecanico :  #{@nuevoMecanico.id} "
+    else
+      render plain: "Error"
+    end
+  end
   def homepage
   end
 
@@ -42,6 +63,8 @@ class WelcomeController < ApplicationController
         @nuevaCita.Servicio.create(Tipo: params[:Tipo],Descripcion: @Desc[i])
       end
     end
+
+	Mymailer.send_email(Cliente.find(Auto.find(@nuevaCita.auto_id))).deliver
     render plain: "Cita creada exitosamente con el Id de Cita :  #{@nuevaCita.id} "
   else
     render plain: "Error"
@@ -52,11 +75,34 @@ class WelcomeController < ApplicationController
  		render plain: "Error al guardar la cita"
  	end
  	/
-@cli = Cliente.find_by(:NombreCliente=> params[:nombreCliente].split[0])
-#Mymailer.send_email(Cliente.where(:NombreCliente=> params[:nombreCliente].split[0])).deliver
-puts @cli.Email
+#@cli = Cliente.find_by(:NombreCliente=> params[:nombreCliente].split[0])
+#Mymailer.send_email(Cliente.find_by(:NombreCliente=> params[:nombreCliente].split[0])).deliver
+#puts @cli.Email
  end
 
+ def newVehiculo
+  @allClientes = Cliente.all;
+ end
+
+ def nuevoVehiculo
+    @nuevoCarro =Auto.new(:cliente_id => params[:cliente_id], :Placa => params[:placaAuto], :Modelo => params[:modeloAuto], :NumeroMotor => params[:numeroAuto])
+    if @nuevoCarro.save
+      render plain: "Vehiculo creado exitosamente con el Id de Vehiculo :  #{@nuevoCarro.id} "
+    else
+      render plain: "Error"
+    end
+ end
+
+ def modAuto
+  @allClientes = Cliente.all
+  @selectedAuto = Auto.find_by(:Placa => params[:placaVeh])
+ end
+
+ def modificarVehiculo
+    @nuevoCarro = Auto.find_by(:Placa => params[:placaAuto])
+    @nuevoCarro.update(:cliente_id => params[:cliente_id], :Placa => params[:placaAuto], :Modelo => params[:modeloAuto], :NumeroMotor => params[:numeroAuto])
+    render plain: "Vehiculo modificado exitosamente con el Id de Vehiculo :  #{@nuevoCarro.id} "
+ end
 
   def checkCita
 	if Citum.where(:id => params[:idCita]).blank?
@@ -72,6 +118,14 @@ puts @cli.Email
 	else
 		 render plain: "true"
 	end
+  end
+
+  def checkAuto
+  if Auto.where(:Placa => params[:placaVeh]).blank?
+     render plain: "false"     
+  else
+     render plain: "true"
+  end
   end
 
 end
