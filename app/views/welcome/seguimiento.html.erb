@@ -25,14 +25,16 @@
 		<h1 align="Center" style="color: #fff;">Seguimiento vehiculo placa: <%= @selectedCita.Placa %></h1>
 		
 		<h2 align="Center" style="color: #fff;">Cliente: <%=@selectedCita.NombreCliente %></p>
-		<table align="center" border="1">
+		<table class= "imagetable" align="center" border="1">
 			<tr>
 				<td>Asesor</td>
 				<td>Estado</td>
+				<td>Fecha estimada de entrega</td>
 			</tr>
 			<tr>
 				<td><%= @selectedAsesor.NombreAsesor %></td>
 				<td><%= @selectedCita.Estado %></td>
+				<td><%= @FechaEstimadaEntrega %></td>
 			</tr>
 		</table>
 	</div>
