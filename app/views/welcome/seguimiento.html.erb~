@@ -32,7 +32,9 @@
 				<td>Fecha estimada de entrega</td>
 			</tr>
 			<tr>
-				
+				<td><%= @selectedAsesor.NombreAsesor %></td>
+				<td><%= @selectedCita.Estado %></td>
+				<td><%= @FechaEstimadaEntrega %></td>
 			</tr>
 		</table>
 	</div>
