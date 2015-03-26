@@ -1,0 +1,39 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Auto:</strong>
+  <%= @citum.auto_id %>
+</p>
+
+<p>
+  <strong>Placa:</strong>
+  <%= @citum.Placa %>
+</p>
+
+<p>
+  <strong>Nombrecliente:</strong>
+  <%= @citum.NombreCliente %>
+</p>
+
+<p>
+  <strong>Estado:</strong>
+  <%= @citum.Estado %>
+</p>
+
+<p>
+  <strong>Telefonocontacto:</strong>
+  <%= @citum.TelefonoContacto %>
+</p>
+
+<p>
+  <strong>Fechahoraentrada:</strong>
+  <%= @citum.FechaHoraEntrada %>
+</p>
+
+<p>
+  <strong>Asesor:</strong>
+  <%= @citum.asesor_id %>
+</p>
+
+<%= link_to 'Edit', edit_citum_path(@citum) %> |
+<%= link_to 'Back', cita_path %>

@@ -1,0 +1,33 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Listing Mecanicos</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Asesor</th>
+      <th>Nombremecanico</th>
+      <th>Apellidomecanico</th>
+      <th>Numerotelefono</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @mecanicos.each do |mecanico| %>
+      <tr>
+        <td><%= mecanico.asesor_id %></td>
+        <td><%= mecanico.NombreMecanico %></td>
+        <td><%= mecanico.ApellidoMecanico %></td>
+        <td><%= mecanico.NumeroTelefono %></td>
+        <td><%= link_to 'Show', mecanico %></td>
+        <td><%= link_to 'Edit', edit_mecanico_path(mecanico) %></td>
+        <td><%= link_to 'Destroy', mecanico, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Mecanico', new_mecanico_path %>

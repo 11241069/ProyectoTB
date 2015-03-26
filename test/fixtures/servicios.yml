@@ -1,0 +1,11 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  citum_id: 
+  tipo: 
+  descripcion: MyString
+
+two:
+  citum_id: 
+  tipo: 
+  descripcion: MyString
