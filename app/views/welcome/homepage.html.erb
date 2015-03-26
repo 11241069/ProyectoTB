@@ -114,7 +114,7 @@
 		</br>	
 		<form>
 			<div align="center"class="input-group">
-				<input align="center"  id="AAT" type="text" placeholder="Clave Asesor" ></input>
+				<input align="center"  id="AAT"type="text" class="form-control" name="nombreVEH" placeholder="Clave Asesor" ></input>
 			</div>
 			
 			</br>
@@ -328,11 +328,13 @@
 	});
 
 	$("#MAB").click(function() {
-    	
-  					var url = "/modificarAsesor?idAsesor="+ $("#AAT").val()
-  					window.location.href=url
-				
-    });
+		var url = "/modificarAsesor?idAsesor="+ $("#AAT").val()
+		window.location.href=url
+	});
+	$("#ModificarMecaButton").click(function() {
+		var url = "/modificarMecanico?idMeca="+ $("#AdminMecaText").val()
+		window.location.href=url
+	});
 	</script>
 	</body>
 

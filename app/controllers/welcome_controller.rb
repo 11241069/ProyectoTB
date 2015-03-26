@@ -6,16 +6,22 @@ class WelcomeController < ApplicationController
 
   def agregarAsesor
   end
+  
+  def modificarMecanico
+    @allAsesores = Asesor.all
+    @selectMeca = Mecanico.find_by(:id=>params[:idMeca]) 
+  end
+
+  def actuaMecanico
+    @selectMeca= Mecanico.find_by(:id=>params[:idMeca])
+    @selectMeca.update(:asesor_id=>params[:asesorid],:NombreMecanico=>params[:nameMeca], :ApellidoMecanico=>params[:apellidoMeca], :NumeroTelefono=>params[:telefonoMeca])
+    render plain: "Bien"
+  end
 
   def actuaAsesor
-    @selectAsesor2 = Asesor.find_by(:id=>params[:idAsesor])
-    @selectAsesor2.update(:NombreAsesor=>params[nombreAse], :ApellidoAsesor=>params[:apellidoAse],:NumeroTelefono=>params[:telefonoAse])
-    if @selectAsesor.save
-        render plain: "Actualizado nuevo Nombre: #{@selectAsesor.NombreAsesor}"
-    else
-        render plain: "NO paso Nada"
-    end
-    render plain: "shit"
+    @selectAsesor = Asesor.find(params[:idAse])
+    @selectAsesor.update(:NombreAsesor=>params[:nombreAse], :ApellidoAsesor=>params[:apellidoAse],:NumeroTelefono=>params[:telefonoAse])
+    render plain: "Bien"
   end
 
   def modificarAsesor

@@ -64,7 +64,7 @@
 	     		url: "/actuaAsesor",
 	      		type: "POST",
 	      		data: {nombreAse: $("#nameAse").val(), telefonoAse: $("#telAse").val(), apellidoAse: $("#apeAse").val(),
-	      		 idAse: $("#idAse")},
+	      		 idAse: $("#idAse").val()},
 	      		success: function(data){                
   				if (data != "Error"){
   					alert(data);
